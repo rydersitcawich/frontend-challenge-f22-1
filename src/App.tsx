@@ -1,22 +1,25 @@
 import './App.css';
-
-import Nav from './components/Nav';
-import Courses from './components/Courses';
+import {Home} from './pages/Home';
+import {Nav} from './components/Nav';
+import {Courses} from './pages/Courses';
 import Cart from './components/Cart';
+import {Route, Routes} from 'react-router-dom';
+import {Container} from 'react-bootstrap';
+import { Receipt } from './pages/Receipt'; 
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   return (
-    <>
-      <Nav />
-      <div style={{
-        width: '100%',
-        boxSizing: 'border-box',
-        padding: '0 calc(1rem + 10%)',
-      }}>
-        <Courses />
-        <Cart />
-      </div>
-    </>
+    <ShoppingCartProvider>
+    <Container className = 'mb-4 p-0'>
+        <Nav/>
+        <Routes>
+          <Route path = '/' element={<Home/>}/>
+          <Route path = '/courses' element={<Courses/>}/>
+          <Route path = '/receipt' element={<Receipt/>}/>
+        </Routes>
+      </Container>
+    </ShoppingCartProvider>
   );
 }
 
