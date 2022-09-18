@@ -10,21 +10,12 @@ type CourseItemProps = {
     prereqs?: any 
 }
 
-export function CourseItem({dept, number, title, description, prereqs}: CourseItemProps){
-    
-    // fetch('/api/base/2022A/courses/CIS-120/')
-	// .then(res => res.json())
-	// .then((data) => getCourseQuality(data.course_quality));
-
-    // var course_quality: number;
-    // function getCourseQuality(data:number){
-    //     course_quality = data;
-    // }    
+export function CourseItem({dept, number, title, description, prereqs}: CourseItemProps){  
 
     const [courseQuality, setCourseQuality] = useState(0);
 
     useEffect(() => {
-        fetch('/api/base/2022A/courses/CIS-120/')
+        fetch('/api/base/2022A/courses/CIS-'+ number +'/')
         .then(response => response.json())
         .then(data => setCourseQuality(data.course_quality))
       },[])
@@ -52,6 +43,7 @@ export function CourseItem({dept, number, title, description, prereqs}: CourseIt
         return (<div style = {{textAlign:'left'}}>
             <p><strong>{'Description: ' }</strong>{description}</p>
             <p><strong>{'Prerequisites: ' }</strong>{prereqss}</p>
+            <p><strong>{'Course Rating: ' }</strong>{courseQuality}</p>
             
         </div>)
         }
