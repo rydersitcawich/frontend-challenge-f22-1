@@ -1,5 +1,5 @@
 import courses from '../data/courses.json';
-import {Col, Row, Button, Form} from 'react-bootstrap';
+import {Col, Row, Form} from 'react-bootstrap';
 import {CourseItem} from '../components/CourseItem';
 import { useState } from 'react';
 

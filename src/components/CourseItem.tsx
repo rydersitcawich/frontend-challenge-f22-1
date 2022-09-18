@@ -18,8 +18,26 @@ export function CourseItem({dept, number, title, description, prereqs}: CourseIt
         if (prereqs !== undefined && prereqs !== "Senior standing or permission of instructor"){
             prereqss = prereqs.join(', ');
         } 
+    //formats text for 'Display More Text' button
+    function getFormattedText(){
+        if (prereqs == undefined){
+            return (
+                <div style = {{textAlign:'left'}}>
+                    <p><strong>{'Description: ' }</strong>{description}</p>  
+                </div>
+            )
+        }
+        else{
+        return (<div style = {{textAlign:'left'}}>
+            <p><strong>{'Description: ' }</strong>{description}</p>
+            <p><strong>{'Prerequisites: ' }</strong>{prereqss}</p>
+            
+        </div>)
+        }
+    }
+
         // show more text 
-    const text = 'Description: ' + description + (prereqs == undefined ? '': '\nPrereqs: ' + prereqss)
+    const text = getFormattedText();
     return(
         <Card className = 'h-100'>
             <Card.Body className ='d-flex flex-column' >
@@ -30,7 +48,7 @@ export function CourseItem({dept, number, title, description, prereqs}: CourseIt
                 <span style ={{textAlign:'center', marginBottom: '0.5rem'}}>{title}</span>
                 <span style = {{textAlign: 'center'}}>
                     {/* showMore text logic */}
-                    {showMore ? (text) : `${text.substring(0,0)}`}
+                    {showMore ? (text) :''}
                     <button style = {{color:"blue"}} className='btn' onClick={() => setShowMore(!showMore)}>
                         {showMore ? 'show less': 'Display more information'}
                     </button>
