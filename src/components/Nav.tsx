@@ -10,13 +10,7 @@ export function Nav(){
       <Navbs className = 'me-auto'>
         
         <Navbs.Link to = "/" as= {NavLink}>
-          Courses
-        </Navbs.Link>
-        <Navbs.Link to = "/" as= {NavLink}>
-          Other Products
-        </Navbs.Link>
-        <Navbs.Link to = "/" as= {NavLink}>
-          Github
+          Course Selection
         </Navbs.Link>
         
       </Navbs>

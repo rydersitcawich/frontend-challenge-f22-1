@@ -5,11 +5,6 @@ import { useState } from 'react';
 
 export function Courses(){
   const[query, setQuery] = useState('');
-
-  type filterCoursesProps = {
-    courses:any
-    query: string
-  }
 return (
 <>
 <h1 style = {{marginBottom: '1rem'}}>Browse Courses</h1>  
@@ -22,6 +17,7 @@ return (
     onChange = {e => setQuery(e.target.value)}/>
 </Form>
 <Row md={2} xs = {1} lg = {3} className = 'g-3'>
+  {/* only displays courses who's number contains the query */}
   {courses.map(item => {
   if(JSON.stringify(item.number).includes(query)){return (<Col key ={item.number}><CourseItem {...item}/></Col>)}
 })}
