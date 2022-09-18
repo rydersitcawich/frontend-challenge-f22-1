@@ -1,4 +1,4 @@
-import { Offcanvas, Stack } from "react-bootstrap";
+import { Offcanvas, Stack, Button } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import {CartItem} from './CartItem';
 import {useNavigate} from 'react-router-dom'
@@ -11,27 +11,29 @@ export function ShoppingCart({isOpen}: ShoppingCartProps){
     const navigate = useNavigate();
     
     function navigateReceipt(){
-        navigate('/receipt')
+        navigate('/receipt');
+        closeCart();
     }
 return (
 <Offcanvas show={isOpen} placement = 'end' onHide={closeCart}>
     <Offcanvas.Header closeButton>
-        <Offcanvas.Title>
+        <Offcanvas.Title style = {{borderStyle: 'none none solid none', paddingBottom: '.5rem', width: '100%'}}>
             Cart
         </Offcanvas.Title>
     </Offcanvas.Header>
-    <Offcanvas.Body>
+    
+    {cartItems.length !==0 ? <Offcanvas.Body>
         <Stack gap ={3}>
             {cartItems.map(item => (
             <CartItem key={item.number} {...item}/>))
             }
         </Stack>
         <div style = {{display:'flex', justifyContent:'center'}}>
-        <button onClick = {navigateReceipt} style = {{marginTop: '2rem'}}>
+        <Button onClick = {navigateReceipt} style = {{marginTop: '2rem'}}>
             Checkout
-        </button>
+        </Button>
         </div>
-    </Offcanvas.Body>
+    </Offcanvas.Body>: <div style = {{display:'flex', justifyContent:'center'}}><h6>Your Cart is Empty!</h6></div>}
 </Offcanvas>
 )
 }

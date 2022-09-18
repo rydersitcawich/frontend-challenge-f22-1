@@ -14,8 +14,7 @@ function App() {
     <Container className = 'mb-4 p-0'>
         <Nav/>
         <Routes>
-          <Route path = '/' element={<Home/>}/>
-          <Route path = '/courses' element={<Courses/>}/>
+          <Route path = '/' element={<Courses/>}/>
           <Route path = '/receipt' element={<Receipt/>}/>
         </Routes>
       </Container>
