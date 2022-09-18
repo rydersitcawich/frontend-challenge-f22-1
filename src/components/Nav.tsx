@@ -8,15 +8,11 @@ export function Nav(){
   <Navbar className = 'navbar sticky-top bg-white shadow-sm mb-3'>
     <Container >
       <Navbs className = 'me-auto'>
-        <Navbs.Link to = "/" as= {NavLink}>
-          Home
-        </Navbs.Link>
+        
         <Navbs.Link to = "/courses" as= {NavLink}>
           Courses
         </Navbs.Link>
-        <Navbs.Link to = "/receipt" as= {NavLink}>
-          Receipt
-        </Navbs.Link>
+        
       </Navbs>
       {cartQuantity > 0 && <><Button 
       onClick = {openCart} 

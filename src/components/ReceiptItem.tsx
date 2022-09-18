@@ -32,14 +32,6 @@ export function ReceiptItem({dept, number, title, description, prereqs}: Receipt
                         {showMore ? 'show less': 'Display more information'}
                     </button>
                 </span>
-                <div className = 'mt-auto'>
-                    {quantity === 0 ? (
-                    <Button className = 'w-100' onClick = {(() => addToCart(number))}>+ Add to Cart</Button>
-                    ): (
-                        <Button className = 'w-100' variant = 'danger' onClick = {(() => removeFromCart(number))}>Remove from Cart</Button>                        
-                    )
-                    }
-                </div>
             </Card.Body>
             
             

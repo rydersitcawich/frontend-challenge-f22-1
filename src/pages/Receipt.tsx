@@ -15,7 +15,12 @@ export function Receipt() {
               {courses.map(item =>{
                 
                 if(cartItems.filter( e => e.number === item.number).length > 0){
-                    return (<ReceiptItem {...item}/>)}
+                    return (
+                    <Col key ={item.number}>
+                        <ReceiptItem {...item}/>
+                    </Col>
+                    )}
+                    
                 }
                 )}
             </Row>
