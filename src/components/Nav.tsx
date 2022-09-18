@@ -1,4 +1,4 @@
-import {Container, Navbar, Nav as Navbs, Button} from 'react-bootstrap';
+import {Container, Navbar, Nav as Navbs, Button, Form} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
@@ -20,7 +20,8 @@ export function Nav(){
         </Navbs.Link>
         
       </Navbs>
-      <><Button 
+      <>
+      <Button 
       onClick = {openCart} 
       style = {{ width:'3rem', height: '3rem', position: 'relative'}} 
       variant="outline-primary" 
