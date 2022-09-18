@@ -44,10 +44,11 @@ const closeCart = () => setIsOpen(false)
     }
     function addToCart(number:number){
         setCartItems(currItems => {
-            if(currItems.find(item => item.number === number) == null){
+            if((currItems.find(item => item.number === number) == null) && cartItems.length<7){
                 return [...currItems, {number, quantity: 1}]
             }
             else{
+                alert("You already have the maximum number of courses in your cart!");
                 return [...currItems]
             }
         })
