@@ -34,6 +34,8 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps){
 const openCart = () => setIsOpen(true)
 const closeCart = () => setIsOpen(false)
 
+// checks if the item is in the cart
+
     function getItemQuantity(number: number){
         if (cartItems.find(item => item.number === number) != null){
             return 1;

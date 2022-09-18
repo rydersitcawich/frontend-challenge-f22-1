@@ -10,6 +10,7 @@ export function ShoppingCart({isOpen}: ShoppingCartProps){
     const {closeCart, cartItems} = useShoppingCart()
     const navigate = useNavigate();
     
+    // uses react router to navigate to receipt page
     function navigateReceipt(){
         navigate('/receipt');
         closeCart();
@@ -21,7 +22,7 @@ return (
             Cart
         </Offcanvas.Title>
     </Offcanvas.Header>
-    
+    {/* displays items when cart is not empty, displays "Your Cart is Empty" otherwise */}
     {cartItems.length !==0 ? <Offcanvas.Body>
         <Stack gap ={3}>
             {cartItems.map(item => (
