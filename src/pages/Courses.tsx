@@ -14,13 +14,3 @@ return (
 
 
 }
-
-//  return  <>
-//     {courses.map(({ dept, number}) => (
-//       <p key={`${dept}-${number}`}>
-//         {dept}
-//         {' '}
-//         {number}
-//       </p>
-//     ))}
-//   </>

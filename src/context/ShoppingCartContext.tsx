@@ -14,7 +14,7 @@ type ShoppingCartContext = {
     closeCart: () => void
     getItemQuantity: (number:number) => number
     addToCart: (number:number) => void
-    removeFromCart: (number:number) => void
+    removeFromCart: (number:number) => void 
     cartQuantity: number
     cartItems: CartItem[]
 }

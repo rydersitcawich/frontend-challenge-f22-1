@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Button, Card } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
-type CourseItemProps = {
+type ReceiptItemProps = {
     dept: string,
     number: number,
     title: string,
     description: string,
     prereqs?: any 
 }
-export function CourseItem({dept, number, title, description, prereqs}: CourseItemProps){
+export function ReceiptItem({dept, number, title, description, prereqs}: ReceiptItemProps){
     const {getItemQuantity, addToCart, removeFromCart} = useShoppingCart()
     const quantity = getItemQuantity(number);
     const [showMore, setShowMore] = useState(false);
@@ -46,5 +46,3 @@ export function CourseItem({dept, number, title, description, prereqs}: CourseIt
         </Card>
     )
 }
-
-
