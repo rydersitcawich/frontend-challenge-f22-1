@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
@@ -9,7 +9,26 @@ type CourseItemProps = {
     description: string,
     prereqs?: any 
 }
+
 export function CourseItem({dept, number, title, description, prereqs}: CourseItemProps){
+    
+    // fetch('/api/base/2022A/courses/CIS-120/')
+	// .then(res => res.json())
+	// .then((data) => getCourseQuality(data.course_quality));
+
+    // var course_quality: number;
+    // function getCourseQuality(data:number){
+    //     course_quality = data;
+    // }    
+
+    const [courseQuality, setCourseQuality] = useState(0);
+
+    useEffect(() => {
+        fetch('/api/base/2022A/courses/CIS-120/')
+        .then(response => response.json())
+        .then(data => setCourseQuality(data.course_quality))
+      },[])
+
     const {getItemQuantity, addToCart, removeFromCart} = useShoppingCart()
     const quantity = getItemQuantity(number);
     const [showMore, setShowMore] = useState(false);
@@ -18,12 +37,14 @@ export function CourseItem({dept, number, title, description, prereqs}: CourseIt
         if (prereqs !== undefined && prereqs !== "Senior standing or permission of instructor"){
             prereqss = prereqs.join(', ');
         } 
+
     //formats text for 'Display More Text' button
     function getFormattedText(){
         if (prereqs == undefined){
             return (
                 <div style = {{textAlign:'left'}}>
                     <p><strong>{'Description: ' }</strong>{description}</p>  
+                    <p><strong>{'Course Rating: ' }</strong>{courseQuality}</p>
                 </div>
             )
         }

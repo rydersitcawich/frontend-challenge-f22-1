@@ -26,6 +26,7 @@ return (
   ('CIS' + JSON.stringify(item.number)).includes(query)||
   JSON.stringify(item.description.toLowerCase()).includes(query.toLowerCase())|| 
   JSON.stringify(item.title.toLowerCase()).includes(query.toLowerCase()))
+  
   {return (<Col key ={item.number}><CourseItem {...item}/></Col>)}
 })}
 </Row>
