@@ -27,6 +27,7 @@ export function ReceiptItem({dept, number, title, description, prereqs}: Receipt
                 </Card.Title>
                 <span style ={{textAlign:'center', marginBottom: '0.5rem'}}>{title}</span>
                 <span style = {{textAlign: 'center'}}>
+                    {/* same logic as course item */}
                     {showMore ? (text) : `${text.substring(0,0)}`}
                     <button style = {{color:"blue"}} className='btn' onClick={() => setShowMore(!showMore)}>
                         {showMore ? 'show less': 'Display more information'}

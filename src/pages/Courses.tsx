@@ -11,15 +11,22 @@ return (
 <Form style = {{marginBottom:'2rem', width: '30%'}}className="d-flex">
     <Form.Control
     type="search"
-    placeholder="Search Course Number"
+    placeholder="Search Course Number, Title, or Description"
     className="me-2"
     aria-label="Search"
     onChange = {e => setQuery(e.target.value)}/>
 </Form>
 <Row md={2} xs = {1} lg = {3} className = 'g-3'>
-  {/* only displays courses who's number contains the query */}
+  {/* logic for searching */}
   {courses.map(item => {
-  if(JSON.stringify(item.number).includes(query)){return (<Col key ={item.number}><CourseItem {...item}/></Col>)}
+  if(JSON.stringify(item.number).includes(query)|| 
+  ('cis ' + JSON.stringify(item.number)).includes(query)|| 
+  ('cis' + JSON.stringify(item.number)).includes(query)|| 
+  ('CIS ' + JSON.stringify(item.number)).includes(query)|| 
+  ('CIS' + JSON.stringify(item.number)).includes(query)||
+  JSON.stringify(item.description.toLowerCase()).includes(query.toLowerCase())|| 
+  JSON.stringify(item.title.toLowerCase()).includes(query.toLowerCase()))
+  {return (<Col key ={item.number}><CourseItem {...item}/></Col>)}
 })}
 </Row>
 </>

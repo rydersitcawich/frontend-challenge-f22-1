@@ -12,7 +12,7 @@ function App() {
     <Container className = 'mb-4 p-0'>
         <Nav/>
         <Routes>
-          {/* react rounter routes */}
+          {/* react router routes */}
           <Route path = '/' element={<Courses/>}/>
           <Route path = '/receipt' element={<Receipt/>}/>
         </Routes>

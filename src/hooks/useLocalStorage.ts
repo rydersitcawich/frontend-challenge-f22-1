@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
 
+// allows user data to persist through refresh
+
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)){
 const [value, setValue] = useState<T>(() => {
     const jsonValue = localStorage.getItem(key)
