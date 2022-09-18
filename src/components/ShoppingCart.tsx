@@ -26,9 +26,11 @@ return (
             <CartItem key={item.number} {...item}/>))
             }
         </Stack>
-        <button onClick = {navigateReceipt}>
+        <div style = {{display:'flex', justifyContent:'center'}}>
+        <button onClick = {navigateReceipt} style = {{marginTop: '2rem'}}>
             Checkout
         </button>
+        </div>
     </Offcanvas.Body>
 </Offcanvas>
 )

@@ -16,7 +16,7 @@ export function CartItem({number, quantity}: CartItemProps){
     return(
         <>
         <Stack direction = 'horizontal' gap ={2} className = 'd-flex align-items-center'>
-            <div className= 'me-auto' style = {{borderStyle: 'none none solid none'}}>
+            <div className= 'me-auto' style = {{borderStyle: 'none none solid none', paddingBottom: '.5rem'}}>
                 {item.dept + ' ' + item.number}
                 {'--' + item.title}
             </div>

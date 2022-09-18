@@ -12,6 +12,12 @@ export function Nav(){
         <Navbs.Link to = "/courses" as= {NavLink}>
           Courses
         </Navbs.Link>
+        <Navbs.Link to = 'https://pennlabs.org/' as= {NavLink}>
+          Other Products
+        </Navbs.Link>
+        <Navbs.Link to = "https://github.com/rydersitcawich'" as= {NavLink}>
+          Github
+        </Navbs.Link>
         
       </Navbs>
       {cartQuantity > 0 && <><Button 
